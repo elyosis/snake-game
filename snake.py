@@ -36,6 +36,14 @@ class Snake:
         last_pos = self.snake[-1].position()
         self.add_segment(last_pos)
 
+    def reset(self):
+        for segment in self.snake:
+            segment.goto(1000, 1000)
+
+        self.snake.clear()
+        self.create_snake()
+        self.snake_head = self.snake[0]
+
     def move(self):
         """Moves all segments of the snake following its current direction."""
         # The range starts from the last segment of the snake up to position 1
